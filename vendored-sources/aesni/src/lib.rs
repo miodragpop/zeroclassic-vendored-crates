@@ -19,7 +19,7 @@
 //! CTR mode implementation. This functionality requires additionall `ssse3`
 //! target feature and feature-gated behind `ctr` feature flag, which is enabled
 //! by default. If you only need block ciphers, disable default features with
-//! `default-features = false` in your `Cargro.toml`.
+//! `default-features = false` in your `Cargo.toml`.
 //!
 //! AES-CTR functionality is accessed using traits from
 //! [`stream-cipher`](https://docs.rs/stream-cipher) crate.
@@ -34,8 +34,8 @@
 //!
 //! # Usage example
 //! ```
-//! use aesni::block_cipher::generic_array::GenericArray;
-//! use aesni::block_cipher::{BlockCipher, NewBlockCipher};
+//! use aesni::cipher::generic_array::GenericArray;
+//! use aesni::cipher::{BlockCipher, NewBlockCipher};
 //! use aesni::Aes128;
 //!
 //! let key = GenericArray::from_slice(&[0u8; 16]);
@@ -72,13 +72,16 @@
 //! - [Use of the AES Instruction Set](https://www.cosic.esat.kuleuven.be/ecrypt/AESday/slides/Use_of_the_AES_Instruction_Set.pdf)
 
 #![no_std]
-#![doc(html_logo_url = "https://raw.githubusercontent.com/RustCrypto/meta/master/logo_small.png")]
+#![doc(
+    html_logo_url = "https://raw.githubusercontent.com/RustCrypto/meta/master/logo.svg",
+    html_favicon_url = "https://raw.githubusercontent.com/RustCrypto/meta/master/logo.svg"
+)]
 #![warn(missing_docs, rust_2018_idioms)]
 
-pub use block_cipher;
+pub use cipher;
 
 #[cfg(feature = "ctr")]
-pub use stream_cipher;
+pub use cipher::stream;
 
 #[cfg(not(feature = "nocheck"))]
 mod target_checks;

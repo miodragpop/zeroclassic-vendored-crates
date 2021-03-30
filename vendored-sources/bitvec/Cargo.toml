@@ -13,7 +13,7 @@
 [package]
 edition = "2018"
 name = "bitvec"
-version = "0.18.4"
+version = "0.18.5"
 authors = ["myrrlyn <self@myrrlyn.dev>"]
 include = ["Cargo.toml", "src/**/*.rs"]
 description = "A crate for manipulating memory, bit by bit"
@@ -27,11 +27,11 @@ repository = "https://github.com/myrrlyn/bitvec"
 [package.metadata.docs.rs]
 features = ["atomic", "serde", "std"]
 [dependencies.funty]
-version = "1"
+version = "~1.1"
 default-features = false
 
 [dependencies.radium]
-version = "0.4"
+version = "0.3"
 
 [dependencies.serde]
 version = "1"

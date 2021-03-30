@@ -13,7 +13,7 @@
 [package]
 edition = "2018"
 name = "fpe"
-version = "0.3.1"
+version = "0.4.0"
 authors = ["Jack Grigg <thestr4d@gmail.com>"]
 description = "Format-preserving encryption"
 homepage = "https://github.com/str4d/fpe"
@@ -25,10 +25,10 @@ repository = "https://github.com/str4d/fpe"
 name = "ff1"
 harness = false
 [dependencies.aes]
-version = "0.5"
+version = "0.6"
 
 [dependencies.block-modes]
-version = "0.6"
+version = "0.7"
 
 [dependencies.num-bigint]
 version = "0.3"

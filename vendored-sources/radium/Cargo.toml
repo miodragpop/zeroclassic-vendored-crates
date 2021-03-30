@@ -13,9 +13,9 @@
 [package]
 edition = "2018"
 name = "radium"
-version = "0.4.1"
+version = "0.3.0"
 authors = ["Nika Layzell <nika@thelayzells.com>", "myrrlyn <self@myrrlyn.dev>"]
-include = ["src/**/*.rs", "Cargo.toml", "README.md", "build.rs"]
+include = ["src/**/*", "Cargo.toml", "README.md"]
 description = "Helper traits for working with maybe-atomic values"
 homepage = "https://github.com/mystor/radium"
 documentation = "https://docs.rs/radium"

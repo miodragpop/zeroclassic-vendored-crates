@@ -71,7 +71,10 @@
 //! [2]: https://github.com/RustCrypto/stream-ciphers
 
 #![no_std]
-#![doc(html_logo_url = "https://raw.githubusercontent.com/RustCrypto/meta/master/logo_small.png")]
+#![doc(
+    html_logo_url = "https://raw.githubusercontent.com/RustCrypto/meta/master/logo.svg",
+    html_favicon_url = "https://raw.githubusercontent.com/RustCrypto/meta/master/logo.svg"
+)]
 #![deny(unsafe_code)]
 #![warn(missing_docs, rust_2018_idioms)]
 
@@ -91,9 +94,16 @@ mod ecb;
 mod ofb;
 mod pcbc;
 
-pub use block_cipher;
 pub use block_padding;
+pub use cipher;
 
-pub use crate::errors::{BlockModeError, InvalidKeyIvLength};
-pub use crate::traits::BlockMode;
-pub use crate::{cbc::Cbc, cfb::Cfb, cfb8::Cfb8, ecb::Ecb, ofb::Ofb, pcbc::Pcbc};
+pub use crate::{
+    cbc::Cbc,
+    cfb::Cfb,
+    cfb8::Cfb8,
+    ecb::Ecb,
+    errors::{BlockModeError, InvalidKeyIvLength},
+    ofb::Ofb,
+    pcbc::Pcbc,
+    traits::BlockMode,
+};

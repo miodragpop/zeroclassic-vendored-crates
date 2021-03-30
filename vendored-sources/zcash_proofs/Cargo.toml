@@ -13,7 +13,7 @@
 [package]
 edition = "2018"
 name = "zcash_proofs"
-version = "0.4.0"
+version = "0.5.0"
 authors = ["Jack Grigg <jack@z.cash>"]
 description = "Zcash zk-SNARK circuits and proving APIs"
 homepage = "https://github.com/zcash/librustzcash"
@@ -78,7 +78,7 @@ version = "0.2"
 optional = true
 
 [dependencies.zcash_primitives]
-version = "0.4"
+version = "0.5"
 [dev-dependencies.criterion]
 version = "0.3"
 

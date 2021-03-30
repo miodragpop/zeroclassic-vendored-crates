@@ -1,8 +1,16 @@
 #![feature(test)]
 extern crate test;
 
-use aes_soft::block_cipher::{BlockCipher, NewBlockCipher};
+use aes_soft::cipher::{BlockCipher, NewBlockCipher};
 use aes_soft::Aes128;
+
+#[bench]
+pub fn aes128_new(bh: &mut test::Bencher) {
+    bh.iter(|| {
+        let cipher = Aes128::new(&Default::default());
+        test::black_box(&cipher);
+    });
+}
 
 #[bench]
 pub fn aes128_encrypt(bh: &mut test::Bencher) {
