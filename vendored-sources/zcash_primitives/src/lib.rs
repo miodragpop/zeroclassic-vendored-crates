@@ -13,6 +13,7 @@ pub mod constants;
 pub mod group_hash;
 pub mod keys;
 pub mod legacy;
+pub mod memo;
 pub mod merkle_tree;
 pub mod note_encryption;
 pub mod pedersen_hash;
@@ -24,6 +25,9 @@ pub mod serialize;
 pub mod transaction;
 pub mod util;
 pub mod zip32;
+
+#[cfg(feature = "zfuture")]
+pub mod extensions;
 
 #[cfg(test)]
 mod test_vectors;

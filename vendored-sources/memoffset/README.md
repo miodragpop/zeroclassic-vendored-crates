@@ -6,6 +6,7 @@ C-Like `offset_of` functionality for Rust structs.
 
 Introduces the following macros:
  * `offset_of!` for obtaining the offset of a member of a struct.
+ * `offset_of_tuple!` for obtaining the offset of a member of a tuple. (Requires Rust 1.20+)
  * `span_of!` for obtaining the range that a field, or fields, span.
 
 `memoffset` works under `no_std` environments.
@@ -15,7 +16,7 @@ Add the following dependency to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-memoffset = "0.5"
+memoffset = "0.6"
 ```
 
 These versions will compile fine with rustc versions greater or equal to 1.19.
@@ -62,7 +63,7 @@ In order to use it, you must enable the `unstable_const` crate feature and sever
 Cargo.toml:
 ```toml
 [dependencies.memoffset]
-version = "0.5"
+version = "0.6"
 features = ["unstable_const"]
 ```
 
@@ -72,8 +73,3 @@ Your crate root: (`lib.rs`/`main.rs`)
 ```
 
 If you intend to use `offset_of!` inside a `const fn`, also add the `const_fn` compiler feature.
-
-### Raw references ###
-Recent nightlies support [a way to create raw pointers](https://github.com/rust-lang/rust/issues/73394) that avoids creating intermediate safe references.
-`memoffset` can make use of that feature to avoid what is technically Undefined Behavior.
-Use the `unstable_raw` feature to enable this.

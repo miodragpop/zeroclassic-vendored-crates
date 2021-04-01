@@ -13,7 +13,7 @@
 [package]
 edition = "2018"
 name = "aesni"
-version = "0.8.0"
+version = "0.10.0"
 authors = ["RustCrypto Developers"]
 description = "AES (Rijndael) block ciphers implementation using AES-NI"
 documentation = "https://docs.rs/aesni"
@@ -24,25 +24,16 @@ repository = "https://github.com/RustCrypto/block-ciphers"
 [package.metadata.docs.rs]
 rustc-args = ["-C", "target-feature=+aes,+ssse3"]
 rustdoc-args = ["-C", "target-feature=+aes,+ssse3"]
-[dependencies.block-cipher]
-version = "0.8"
+[dependencies.cipher]
+version = "0.2"
 
 [dependencies.opaque-debug]
 version = "0.3"
-
-[dependencies.stream-cipher]
-version = "0.6"
-features = ["block-cipher"]
-optional = true
-[dev-dependencies.block-cipher]
-version = "0.8"
-features = ["dev"]
-
-[dev-dependencies.stream-cipher]
-version = "0.6"
+[dev-dependencies.cipher]
+version = "0.2"
 features = ["dev"]
 
 [features]
-ctr = ["stream-cipher"]
+ctr = []
 default = ["ctr"]
 nocheck = []

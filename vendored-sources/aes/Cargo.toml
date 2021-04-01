@@ -13,7 +13,7 @@
 [package]
 edition = "2018"
 name = "aes"
-version = "0.5.0"
+version = "0.6.0"
 authors = ["RustCrypto Developers"]
 description = "Facade for AES (Rijndael) block ciphers implementations"
 documentation = "https://docs.rs/aes"
@@ -22,13 +22,13 @@ keywords = ["crypto", "aes", "rijndael", "block-cipher"]
 categories = ["cryptography", "no-std"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/RustCrypto/block-ciphers"
-[dependencies.block-cipher]
-version = "0.8"
-[dev-dependencies.block-cipher]
-version = "0.8"
+[dependencies.cipher]
+version = "0.2"
+[dev-dependencies.cipher]
+version = "0.2"
 features = ["dev"]
 [target."cfg(all(target_feature=\"aes\", target_feature = \"sse2\", any(target_arch = \"x86_64\", target_arch = \"x86\")))".dependencies.aesni]
-version = "0.8"
+version = "0.10"
 default-features = false
 [target."cfg(not(all(target_feature=\"aes\", target_feature = \"sse2\", any(target_arch = \"x86_64\", target_arch = \"x86\"))))".dependencies.aes-soft]
-version = "0.5"
+version = "0.6"

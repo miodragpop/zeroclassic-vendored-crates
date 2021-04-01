@@ -3,10 +3,10 @@ pub use alloc::vec::Vec;
 
 use crate::errors::{BlockModeError, InvalidKeyIvLength};
 use crate::utils::{to_blocks, Block, Key};
-use block_cipher::generic_array::typenum::Unsigned;
-use block_cipher::generic_array::{ArrayLength, GenericArray};
-use block_cipher::{BlockCipher, NewBlockCipher};
 use block_padding::Padding;
+use cipher::block::{BlockCipher, NewBlockCipher};
+use cipher::generic_array::typenum::Unsigned;
+use cipher::generic_array::{ArrayLength, GenericArray};
 
 /// Trait for a block cipher mode of operation that is used to apply a block cipher
 /// operation to input data to transform it into a variable-length output message.
@@ -63,7 +63,7 @@ where
     fn decrypt(mut self, buffer: &mut [u8]) -> Result<&[u8], BlockModeError> {
         let bs = C::BlockSize::to_usize();
         if buffer.len() % bs != 0 {
-            Err(BlockModeError)?
+            return Err(BlockModeError);
         }
         self.decrypt_blocks(to_blocks(buffer));
         P::unpad(buffer).map_err(|_| BlockModeError)
@@ -94,7 +94,7 @@ where
     fn decrypt_vec(mut self, ciphertext: &[u8]) -> Result<Vec<u8>, BlockModeError> {
         let bs = C::BlockSize::to_usize();
         if ciphertext.len() % bs != 0 {
-            Err(BlockModeError)?
+            return Err(BlockModeError);
         }
         let mut buf = ciphertext.to_vec();
         self.decrypt_blocks(to_blocks(&mut buf));
