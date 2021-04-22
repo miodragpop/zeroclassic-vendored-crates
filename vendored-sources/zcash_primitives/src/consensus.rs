@@ -190,11 +190,11 @@ pub const MAIN_NETWORK: MainNetwork = MainNetwork;
 impl Parameters for MainNetwork {
     fn activation_height(&self, nu: NetworkUpgrade) -> Option<BlockHeight> {
         match nu {
-            NetworkUpgrade::Overwinter => Some(BlockHeight(347_500)),
-            NetworkUpgrade::Sapling => Some(BlockHeight(419_200)),
-            NetworkUpgrade::Blossom => Some(BlockHeight(653_600)),
-            NetworkUpgrade::Heartwood => Some(BlockHeight(903_000)),
-            NetworkUpgrade::Canopy => Some(BlockHeight(1_046_400)),
+            NetworkUpgrade::Overwinter => Some(BlockHeight(501_000)),
+            NetworkUpgrade::Sapling => Some(BlockHeight(501_000)),
+            NetworkUpgrade::Blossom => None,
+            NetworkUpgrade::Heartwood => None,
+            NetworkUpgrade::Canopy => None,
             #[cfg(feature = "zfuture")]
             NetworkUpgrade::ZFuture => None,
         }
@@ -442,8 +442,8 @@ impl TryFrom<u32> for BranchId {
     fn try_from(value: u32) -> Result<Self, Self::Error> {
         match value {
             0 => Ok(BranchId::Sprout),
-            0x5ba8_1b19 => Ok(BranchId::Overwinter),
-            0x76b8_09bb => Ok(BranchId::Sapling),
+            0x5c7b_7d2f => Ok(BranchId::Overwinter),
+            0x7a73_7763 => Ok(BranchId::Sapling),
             0x2bb4_0e60 => Ok(BranchId::Blossom),
             0xf5b9_230b => Ok(BranchId::Heartwood),
             0xe9ff_75a6 => Ok(BranchId::Canopy),
@@ -458,8 +458,8 @@ impl From<BranchId> for u32 {
     fn from(consensus_branch_id: BranchId) -> u32 {
         match consensus_branch_id {
             BranchId::Sprout => 0,
-            BranchId::Overwinter => 0x5ba8_1b19,
-            BranchId::Sapling => 0x76b8_09bb,
+            BranchId::Overwinter => 0x5c7b_7d2f,
+            BranchId::Sapling => 0x7a73_7763,
             BranchId::Blossom => 0x2bb4_0e60,
             BranchId::Heartwood => 0xf5b9_230b,
             BranchId::Canopy => 0xe9ff_75a6,
