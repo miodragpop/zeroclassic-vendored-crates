@@ -234,11 +234,11 @@ pub const TEST_NETWORK: TestNetwork = TestNetwork;
 impl Parameters for TestNetwork {
     fn activation_height(&self, nu: NetworkUpgrade) -> Option<BlockHeight> {
         match nu {
-            NetworkUpgrade::Overwinter => Some(BlockHeight(207_500)),
-            NetworkUpgrade::Sapling => Some(BlockHeight(280_000)),
-            NetworkUpgrade::Blossom => Some(BlockHeight(584_000)),
-            NetworkUpgrade::Heartwood => Some(BlockHeight(903_800)),
-            NetworkUpgrade::Canopy => Some(BlockHeight(1_028_500)),
+            NetworkUpgrade::Overwinter => Some(BlockHeight(1_880)),
+            NetworkUpgrade::Sapling => Some(BlockHeight(1_880)),
+            NetworkUpgrade::Blossom => Some(BlockHeight(3_100)),
+            NetworkUpgrade::Heartwood => Some(BlockHeight(4_000)),
+            NetworkUpgrade::Canopy => Some(BlockHeight(5_000)),
             #[cfg(feature = "zfuture")]
             NetworkUpgrade::ZFuture => None,
         }
@@ -444,9 +444,9 @@ impl TryFrom<u32> for BranchId {
             0 => Ok(BranchId::Sprout),
             0x5c7b_7d2f => Ok(BranchId::Overwinter),
             0x7a73_7763 => Ok(BranchId::Sapling),
-            0x2bb4_0e60 => Ok(BranchId::Blossom),
-            0xf5b9_230b => Ok(BranchId::Heartwood),
-            0xe9ff_75a6 => Ok(BranchId::Canopy),
+            0x624c_536d => Ok(BranchId::Blossom),
+            0x4874_5764 => Ok(BranchId::Heartwood),
+            0x634e_7059 => Ok(BranchId::Canopy),
             #[cfg(feature = "zfuture")]
             0xffff_ffff => Ok(BranchId::ZFuture),
             _ => Err("Unknown consensus branch ID"),
@@ -460,9 +460,9 @@ impl From<BranchId> for u32 {
             BranchId::Sprout => 0,
             BranchId::Overwinter => 0x5c7b_7d2f,
             BranchId::Sapling => 0x7a73_7763,
-            BranchId::Blossom => 0x2bb4_0e60,
-            BranchId::Heartwood => 0xf5b9_230b,
-            BranchId::Canopy => 0xe9ff_75a6,
+            BranchId::Blossom => 0x624c_536d,
+            BranchId::Heartwood => 0x4874_5764,
+            BranchId::Canopy => 0x634e_7059,
             #[cfg(feature = "zfuture")]
             BranchId::ZFuture => 0xffff_ffff,
         }
